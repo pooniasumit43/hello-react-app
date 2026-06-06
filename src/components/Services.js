@@ -1,25 +1,26 @@
 import React from "react";
 import "./Services.css";
+import {Link} from "react-router-dom";
 
 const servicesData = [
   {
     title: "Hair Cut",
-    price: "₹150",
+    price: "₹50",
     desc: "Professional haircut for men",
   },
   {
     title: "Beard Styling",
-    price: "₹100",
+    price: "₹50",
     desc: "Trendy beard shaping & trim",
   },
   {
     title: "Facial",
-    price: "₹399",
+    price: "₹100",
     desc: "Glow & skin care treatment",
   },
   {
     title: "Hair Spa",
-    price: "₹599",
+    price: "₹199",
     desc: "Relaxing hair spa therapy",
   },
   {
@@ -38,15 +39,16 @@ const Services = () => {
   return (
     <section className="services">
       <h2>Our Services</h2>
+
       <p className="subtitle">Best Quality Services at Affordable Price</p>
 
       <div className="service-cards">
         {servicesData.map((service, index) => (
-          <div className="service-card" key={index}>
+          <Link key={index} to="/booking" state={{selectedService:service.title}} className="service-card" >
             <h3>{service.title}</h3>
             <p>{service.desc}</p>
             <span>{service.price}</span>
-          </div>
+          </Link>
         ))}
       </div>
     </section>

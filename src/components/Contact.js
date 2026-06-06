@@ -26,13 +26,20 @@ const Contact = () => {
         {/* LEFT INFO */}
         <div className="contact-info">
           <h3>Salon Address</h3>
-          <p>Royal Salon, Main rod, dulaniya, Rajasthan</p>
 
+              <a
+                href="https://maps.app.goo.gl/iKhDd4AZ68JPz4Wi9"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                📍 Royal Salon, Main road, Dulaniya, Rajasthan
+              </a>
           <h3>Phone</h3>
-          <p>📞 +91 9876543210</p>
+          <p>📞{" "}<a href="https://wa.me/+91 7877913352" style={{textDecoration:"none",color:"black"}}>+91 9887451187 </a></p>
 
           <h3>Email</h3>
-          <p>✉️ abcsalon@gmail.com</p>
+          <p>✉️ {" "}<a href="mailto:pooniasumit9785@gmail.com" style={{textDecoration:"none",color:"black"}}>pooniasumit9785@gmail.com</a></p>
         </div>
 
         {/* RIGHT FORM */}
@@ -71,7 +78,7 @@ const Contact = () => {
       <div className="map">
         <iframe
           title="map"
-          src="https://www.google.com/maps?q=jaipur&output=embed"
+          src="https://www.google.com/maps?q=Dulania&output=embed"
           loading="lazy"
         ></iframe>
       </div>

@@ -1,7 +1,10 @@
+
+
 .services {
   padding: 80px 20px;
   background: #f9f9f9;
   text-align: center;
+  
 }
 
 .services h2 {
@@ -21,6 +24,7 @@
   gap: 25px;
   max-width: 1100px;
   margin: auto;
+      text-decoration: none;
 }
 
 .service-card {
@@ -29,6 +33,7 @@
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   transition: 0.3s;
+   text-decoration: none;
 }
 
 .service-card:hover {
