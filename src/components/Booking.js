@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+
 import "./Booking.css";
 
 const Booking = () => {
@@ -11,44 +11,48 @@ const Booking = () => {
   const [name, setName] = useState("");
   const [mobile, setMobile] = useState("");
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
 
-    if (!date || !time || !service || !name || !mobile) {
-      alert("Please fill in all fields");
-      return;
-    }
 
-    const bookingData = {
-      name,
-      mobile,
-      service,
-      date,
-      time,
-      minutes: parseInt(minutes)
-    };
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    try {
-      const response = await axios.post(
-        "http://localhost:8080/api/bookings",
-        bookingData
-      );
+const bookingData = {
+  name: name,
+  phone: mobile,  // model me 'phone' hai
+  service: service,
+  duration: Number(minutes),  // Number kar de, parseInt ki jagah
+  bookingTime: date + "T" + time + ":00", // "2026-05-01T10:30:00"
+  status: "PENDING"
+};
 
+
+  console.log("Sending:", bookingData); // Debug ke liye
+
+  try {
+    const res = await fetch("http://localhost:5172/api/bookings", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"  // 🔥 Ye line zaruri hai
+      },
+      body: JSON.stringify(bookingData)
+    });
+
+    const text = await res.text();
+    console.log("Status:", res.status, "Response:", text);
+
+    if(res.ok) {
       alert("Booking Confirmed ✅");
-
-      // Reset form
-      setName("");
-      setMobile("");
-      setService("");
-      setDate("");
-      setTime("");
-      setMinutes(20);
-
-    } catch (error) {
-      console.error(error);
-      alert("Error booking appointment ❌");
+      setName(""); setMobile(""); setService("");
+      setDate(""); setTime(""); setMinutes(20);
+    } else {
+      alert("Error: " + text);
     }
-  };
+
+  } catch (error) {
+    console.error(error);
+    alert("Server Error ❌");
+  }
+};
 
   return (
     <section className="booking">
