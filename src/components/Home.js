@@ -1,6 +1,7 @@
 import React from "react";
 import "./Home.css";
-import {Link} from "react-router-dom";
+import { HashLink as Link } from 'react-router-hash-link';
+
 
 const Home = () => {
   return (
@@ -15,8 +16,8 @@ const Home = () => {
           </p>
 
           <div className="home-buttons">
-            <Link to="/booking" className="btn-primary">Book Appointment</Link>
-            <Link to="/services" className="btn-secondary">Our Services</Link>
+            <Link to="/#booking" className="btn-primary">Book Appointment</Link>
+            <Link to="/#services" className="btn-secondary">Our Services</Link>
           </div>
         </div>
       </div>

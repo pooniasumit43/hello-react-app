@@ -49,6 +49,7 @@ function Layout() {
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/login" element={<Login />} />
+
       </Routes>
 
       {!isLoginPage && <Footer />} {/* 5. Login nahi hai to Footer dikhao */}
