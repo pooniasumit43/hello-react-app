@@ -1,27 +1,29 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { HashLink as Link } from 'react-router-hash-link'; // scroll ke liye
 import "./Navbar.css";
 import { FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const closeMenu = () => setMenuOpen(false);
 
   return (
     <nav className="navbar">
       {/* Logo */}
       <div className="logo">
-        <Link to="/">💈 Royal Salon</Link>
+        <Link smooth to="/#home" onClick={closeMenu}>💈 Royal Salon</Link>
       </div>
 
       {/* Menu */}
       <ul className={menuOpen ? "nav-links active" : "nav-links"}>
-        <li><Link to="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
-        <li><Link to="/services" onClick={() => setMenuOpen(false)}>Services</Link></li>
-        <li><Link to="/booking" onClick={() => setMenuOpen(false)}>Book Now</Link></li>
-        <li><Link to="/gallery" onClick={() => setMenuOpen(false)}>Gallery</Link></li>
-        <li><Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link></li>
+        <li><Link smooth to="/#home" onClick={closeMenu}>Home</Link></li>
+        <li><Link smooth to="/#services" onClick={closeMenu}>Services</Link></li>
+        <li><Link smooth to="/#booking" onClick={closeMenu}>Book Now</Link></li>
+        <li><Link smooth to="/#gallery" onClick={closeMenu}>Gallery</Link></li>
+        <li><Link smooth to="/#contact" onClick={closeMenu}>Contact</Link></li>
         <li>
-          <Link className="login-btn" to="/login" onClick={() => setMenuOpen(false)}>
+          {/* Login alag page hai */}
+          <Link className="login-btn" to="/login" onClick={closeMenu}>
             Login
           </Link>
         </li>

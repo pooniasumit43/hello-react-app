@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import "./Booking.css";
 
+
 const Booking = () => {
 
   const [date, setDate] = useState("");
