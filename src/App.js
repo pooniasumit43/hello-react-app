@@ -1,5 +1,5 @@
 import React, {useEffect,useState} from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom"; // 1. useLocation add kiya
 //import { HashLink as Link } from 'react-router-hash-link'; // smooth scroll ke liye
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
@@ -27,28 +27,31 @@ function MainPage() {
 
   return (
     <>
-      {/* HAR SECTION KO ID DENA ZARURI HAI */}
-      <section id="home">
-        <Home />
-      </section>
-
-      <section id="services">
-        <Services />
-      </section>
-
-      <section id="gallery">
-        <Gallery />
-      </section>
-
-      <section id="booking">
-        <Booking />
-      </section>
-
-      <section id="contact">
-        <Contact />
-      </section>
-
+      <section id="home"><Home /></section>
+      <section id="services"><Services /></section>
+      <section id="gallery"><Gallery /></section>
+      <section id="booking"><Booking /></section>
+      <section id="contact"><Contact /></section>
       <h2 style={{textAlign: 'center'}}>{message}</h2>
+    </>
+  )
+}
+
+// 2. NAYA COMPONENT BANA DIYA
+function Layout() {
+  const location = useLocation();
+  const isLoginPage = location.pathname === "/login"; // 3. check karega login hai ya nahi
+
+  return (
+    <>
+      {!isLoginPage && <Navbar />} {/* 4. Login nahi hai to Navbar dikhao */}
+
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+
+      {!isLoginPage && <Footer />} {/* 5. Login nahi hai to Footer dikhao */}
     </>
   )
 }
@@ -56,14 +59,7 @@ function MainPage() {
 function App() {
   return (
     <BrowserRouter>
-      <Navbar /> {/* Navbar sab page pe rahega */}
-
-      <Routes>
-        <Route path="/" element={<MainPage />} />  {/* Ye wala single page */}
-        <Route path="/login" element={<Login />} /> {/* Ye alag page */}
-      </Routes>
-
-      <Footer />
+      <Layout /> {/* Navbar/Footer yaha se hata ke Layout me daal diye */}
     </BrowserRouter>
   );
 }
