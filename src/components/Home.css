@@ -1,42 +1,42 @@
 .home {
   width: 100%;
   min-height: 100vh;
-  background-image: url("Hero.jpg");
-  background-size: cover;
+  background-image: url("royle1.jpg");
+  background-size: cover; /* Image full cover karegi */
   background-position: center;
-  padding-top:0%;
+  background-repeat: no-repeat; /* Ye add kiya */
   position: relative;
-  
-  
+  overflow: hidden; /* Side scroll band */
 }
 
 /* Dark overlay */
 .home-overlay {
   position:absolute;
   inset:0;
-  
- 
   background: rgba(0, 0, 0, 0.6);
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 20px; /* Mobile me side se gap */
 }
 
 /* Content */
 .home-content {
   text-align: center;
   color: #fff;
-  padding: 20px;
+  max-width: 900px; /* Desktop me bahut chauda na ho */
+  z-index: 1; /* Overlay ke upar laane ke liye */
 }
 
 .home-content h1 {
-  font-size: 60px;
+  font-size: clamp(32px, 8vw, 60px); /* Responsive font fix */
   font-weight: bold;
   color: #f5c542;
+  margin-bottom: 15px;
 }
 
 .home-content p {
-  font-size: 18px;
+  font-size: clamp(14px, 3vw, 18px); /* Responsive font fix */
   margin: 20px 0;
   line-height: 1.6;
 }
@@ -44,16 +44,20 @@
 /* Buttons */
 .home-buttons {
   margin-top: 30px;
+  display: flex; /* Flex kiya taaki center rahe */
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap; /* Mobile me neeche aa jaye */
 }
 
 .home-buttons a {
   text-decoration: none;
   padding: 12px 25px;
-  margin: 0 10px;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: clamp(14px, 3vw, 16px); /* Responsive */
   font-weight: bold;
   transition: 0.3s;
+  min-width: 180px; /* Dono button barabar */
 }
 
 .btn-primary {
@@ -77,16 +81,15 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-  .home-content h1 {
-    font-size: 40px;
+  .home {
+    background-attachment: scroll; /* Mobile me fixed hata do warna lag karega */
   }
-
-  .home-content p {
-    font-size: 16px;
+  .home-buttons {
+    flex-direction: column; /* Button ek ke neeche ek */
+    align-items: center;
   }
-
   .home-buttons a {
-    display: block;
-    margin: 10px auto;
+    width: 80%; /* Mobile me full width */
+    margin: 5px 0;
   }
 }
