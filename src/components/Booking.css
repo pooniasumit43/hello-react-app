@@ -1,12 +1,17 @@
+body{
+text-align:center;
+}
 .booking {
   padding: 80px 20px;
   background: #f4f4f4;
   text-align: center;
+
 }
 
 .booking h2 {
   font-size: 36px;
   margin-bottom: 10px;
+      text-align: center;
 }
 
 .booking p {
