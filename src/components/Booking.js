@@ -56,7 +56,7 @@ const bookingData = {
 };
 
   return (
-    <section className="booking">
+    <section className="/#booking">
       <h2>Book Appointment</h2>
       <p>Select date & manage your time</p>
       <form className="booking-form" onSubmit={handleSubmit}>

@@ -25,51 +25,27 @@ import img22 from"../components/images/Hairstyles20.jpg";
 
 
 const images = [
-  img1,img2,img3,img4,img5,img6,img7,img8,
-                                    img9
-                                    ,img10
-                                    ,img11
-                                    ,img12
-                                    ,img13
-                                    ,img14
-                                    ,img15
-                                   , img16
-                                    ,img17
-                                    ,img18
-                                   , img19
-                                   , img20
-                                    ,img21
-                                    ,img22
+  img1,img2,img3,img4,img5,img6,img7,img8,img9,img10,img11,img12,img13,img14,img15, img16,img17,img18, img19, img20 ,img21,img22
 ];
 
 const Gallery = () => {
   const [selected, setSelected] = useState(null);
-  const [zoom, setZoom] = useState(1);
 
   const close = () => {
     setSelected(null);
-    setZoom(1);
-  };
-
-  const zoomIn = () => setZoom((z) => z + 0.2);
-  const zoomOut = () => setZoom((z) => (z > 1 ? z - 0.2 : 1));
-
-  const handleWheel = (e) => {
-    if (e.deltaY < 0) zoomIn();
-    else zoomOut();
   };
 
   return (
     <>
       <div className="gallery">
         <h2>Gallery</h2>
-
         <div className="grid">
           {images.map((img, i) => (
             <img
               key={i}
               src={img}
               alt="salon"
+              loading="lazy" // 22 image hai to ye lagana jaruri hai
               onClick={() => setSelected(img)}
             />
           ))}
@@ -78,17 +54,13 @@ const Gallery = () => {
 
       {selected && (
         <div className="overlay" onClick={close}>
-          <div className="controls" onClick={(e) => e.stopPropagation()}>
-            <button onClick={zoomIn}>＋</button>
-            <button onClick={zoomOut}>－</button>
-            <button onClick={close}>✕</button>
-          </div>
+          {/* + - wale button hata diye */}
+          <button className="close-btn" onClick={close}>✕</button>
 
           <img
             src={selected}
             alt="preview"
-            style={{ transform: `scale(${zoom})` }}
-            onWheel={handleWheel}
+            className="zoomable-img"
             onClick={(e) => e.stopPropagation()}
           />
         </div>

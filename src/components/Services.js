@@ -1,6 +1,6 @@
 import React from "react";
 import "./Services.css";
-import {Link} from "react-router-dom";
+import { HashLink as Link } from 'react-router-hash-link';
 
 const servicesData = [
   {
@@ -44,7 +44,7 @@ const Services = () => {
 
       <div className="service-cards">
         {servicesData.map((service, index) => (
-          <Link key={index} to="/booking" state={{selectedService:service.title}} className="service-card" >
+          <Link key={index} to="/#booking" state={{selectedService:service.title}} className="service-card" >
             <h3>{service.title}</h3>
             <p>{service.desc}</p>
             <span>{service.price}</span>
