@@ -1,13 +1,45 @@
 import React, { useState } from "react";
 import "./Gallery.css";
-import img1 from"../components/img1.jpg";
-import img2 from"../components/img2.jpg";
-import img3 from"../components/img3.jpg";
-import img4 from"../components/img4.jpg";
-import img5 from"../components/img5.jpg";
-import img6 from"../components/img6.jpg";
+import img1 from"../components/images/H.jpg";
+import img2 from"../components/images/Hairstyles.jpg";
+import img3 from"../components/images/Hairstyles1.jpg";
+import img4 from"../components/images/Hairstyles2.jpg";
+import img5 from"../components/images/Hairstyles3.jpg";
+import img6 from"../components/images/Hairstyles4.jpg";
+import img7 from"../components/images/Hairstyles5.jpg";
+import img8 from"../components/images/Hairstyles6.jpg";
+import img9 from"../components/images/Hairstyles7.jpg";
+import img10 from"../components/images/Hairstyles8.jpg";
+import img11 from"../components/images/Hairstyles9.jpg";
+import img12 from"../components/images/Hairstyles10.jpg";
+import img13 from"../components/images/Hairstyles11.jpg";
+import img14 from"../components/images/Hairstyles12.jpg";
+import img15 from"../components/images/Hairstyles13.jpg";
+import img16 from"../components/images/Hairstyles14.jpg";
+import img17 from"../components/images/Hairstyles15.jpg";
+import img18 from"../components/images/Hairstyles16.jpg";
+import img19 from"../components/images/Hairstyles17.jpg";
+import img20 from"../components/images/Hairstyles18.jpg";
+import img21 from"../components/images/Hairstyles19.jpg";
+import img22 from"../components/images/Hairstyles20.jpg";
+
+
 const images = [
-  img1,img2,img3,img4,img5,img6
+  img1,img2,img3,img4,img5,img6,img7,img8,
+                                    img9
+                                    ,img10
+                                    ,img11
+                                    ,img12
+                                    ,img13
+                                    ,img14
+                                    ,img15
+                                   , img16
+                                    ,img17
+                                    ,img18
+                                   , img19
+                                   , img20
+                                    ,img21
+                                    ,img22
 ];
 
 const Gallery = () => {
