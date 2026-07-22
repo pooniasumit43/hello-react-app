@@ -8,6 +8,8 @@
   
   "homepage": "/",
   
+  "proxy": "http://localhost:8080",
+  
   "dependencies": {
   
     
@@ -23,7 +25,7 @@
   "@testing-library/user-event": "^13.5.0",
   
     
-  "axios": "^1.13.2",
+  "axios": "^1.18.1",
   
     
   "react": "^19.1.1",
